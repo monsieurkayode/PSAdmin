@@ -12,8 +12,9 @@
     "start": "node dist/server.js",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "build:client": "webpack --mode development",
+    "prebuild:dev": "rm -rf dist",
     "build:server": "babel --presets env server.js -d dist/",
-    "build:dev": "rm -rf dist && concurrently \"yarn build:client\" \"yarn build:server\"",
+    "build:dev": "concurrently \"yarn build:client\" \"yarn build:server\"",
     "test:dev": "jest -u --coverage",
     "test:watch": "yarn test:dev --watch"
   },
@@ -53,6 +54,7 @@
     "jest": "^23.6.0",
     "jquery": "^3.3.1",
     "node-sass": "^4.9.3",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

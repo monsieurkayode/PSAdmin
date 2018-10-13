@@ -1,0 +1,9 @@
+.link {
+  transition: background 0.3s linear;
+}
+
+.link:hover,
+.active {
+  color: #000;
+  background: #eee;
+}
