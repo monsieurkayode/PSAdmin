@@ -1,0 +1,18 @@
+{
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!node_modules/",
+    "!src/index.js"
+  ],
+  "modulePathIgnorePatterns": [
+    "./src/index.js",
+    "./node_modules/"
+  ],
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ],
+  "setupFiles": [
+    "./src/tests/utils/testSetup.js"
+  ]
+}
