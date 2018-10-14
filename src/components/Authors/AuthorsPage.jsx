@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ *
+ * @function AuthorsPage
+ *
+ * @returns {JSX}
+ */
 const AuthorsPage = () => (
   <div className="container jumbotron">
     <div className="container-fluid">

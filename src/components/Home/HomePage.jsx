@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ *
+ * @function HomePage
+ *
+ * @returns {JSX}
+ */
 const HomePage = () => (
   <div className="container jumbotron">
     <div className="container-fluid">
