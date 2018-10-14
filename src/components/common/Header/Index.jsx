@@ -5,7 +5,23 @@ import { string, shape } from 'prop-types';
 import brandLogo from '../../../images/pluralsight-logo.png';
 import '../../../styles/Header.scss';
 
+/**
+ *
+ * @function Header
+ *
+ * @param {object} location
+ *
+ * @returns {JSX}
+ */
 const Header = ({ location: { pathname } }) => {
+  /**
+   * @description sets the active class
+   * on the navbar item of the current page
+   *
+   * @function activeLink
+   *
+   * @param {string} path
+   */
   const activeLink = (path) => {
     if (path.length === 1) {
       return pathname === '/';
