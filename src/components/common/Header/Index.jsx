@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { string, shape } from 'prop-types';
+import { string, shape, arrayOf } from 'prop-types';
 
 import brandLogo from '../../../images/pluralsight-logo.png';
 import '../../../styles/Header.scss';
@@ -13,7 +14,7 @@ import '../../../styles/Header.scss';
  *
  * @returns {JSX}
  */
-const Header = ({ location: { pathname } }) => {
+const Header = ({ location: { pathname }, courses }) => {
   /**
    * @description sets the active class
    * on the navbar item of the current page
@@ -43,8 +44,10 @@ const Header = ({ location: { pathname } }) => {
           <li className={`link ${activeLink('authors') && 'active'}`}>
             <Link to="/authors">Authors</Link>
           </li>
-          <li className={`link ${activeLink('courses') && 'active'}`}>
-            <Link to="/courses">Courses</Link>
+          <li className={`link ${activeLink('course') && 'active'}`}>
+            <Link to="/courses">
+              Courses <span className="course-count">{courses.length}</span>
+            </Link>
           </li>
           <li className={`link ${activeLink('about') && 'active'}`}>
             <Link to="/about">About</Link>
@@ -55,10 +58,20 @@ const Header = ({ location: { pathname } }) => {
   );
 };
 
+/**
+ * @function mapStateToProps
+ *
+ * @param {object} state
+ *
+ * @returns {object}
+ */
+const mapStateToProps = ({ allCourses: { courses } }) => ({ courses });
+
 Header.propTypes = {
   location: shape({
     pathname: string.isRequired
-  }).isRequired
+  }).isRequired,
+  courses: arrayOf(shape({})).isRequired
 };
 
-export default withRouter(Header);
+export default withRouter(connect(mapStateToProps)(Header));
