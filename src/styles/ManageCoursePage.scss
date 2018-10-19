@@ -1,0 +1,11 @@
+.custom-field {
+  display: flex;
+
+  input, select {
+    width: 93%;
+  }
+
+  .loader {
+    padding-left: 0.25rem;
+  }
+}

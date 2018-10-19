@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import delay from './delay';
 import courseBaseUrl from '../config';
+import { validateInput } from '../helpers/validator';
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
@@ -53,7 +54,7 @@ function replaceAll(str, find, replace) {
 }
 
 // This would be performed on the server in a real app. Just stubbing in.
-const generateId = course => replaceAll(course.title, ' ', '-');
+const generateId = course => replaceAll(course.title.toLowerCase(), ' ', '-');
 
 class CourseApi {
   static getAllCourses() {
@@ -69,13 +70,9 @@ class CourseApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minCourseTitleLength = 1;
-        if (course.title.length < minCourseTitleLength) {
-          reject(
-            new Error(
-              `Title must be at least ${minCourseTitleLength} characters.`
-            )
-          );
+        const { errors, isValid } = validateInput(course);
+        if (!isValid) {
+          reject(errors);
         }
 
         if (course.id) {

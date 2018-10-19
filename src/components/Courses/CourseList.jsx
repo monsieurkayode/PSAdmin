@@ -1,14 +1,16 @@
 import React from 'react';
-import { arrayOf, shape } from 'prop-types';
+import { arrayOf, shape, func } from 'prop-types';
 import CourseListRow from './CourseListRow';
 
 /**
  *
  * @function CourseList
  *
- * @returns {JSX}
+ * @param {object} props
+ *
+ * @returns {JSX} JSX
  */
-const CourseList = ({ courses }) => (
+const CourseList = ({ courses, deleteCourse }) => (
   <table className="table">
     <thead>
       <tr>
@@ -17,16 +19,24 @@ const CourseList = ({ courses }) => (
         <th>Author</th>
         <th>Category</th>
         <th>Length</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
-      {courses.map(course => <CourseListRow key={course.id} {...course} />)}
+      {courses.map(course => (
+        <CourseListRow
+          key={course.id}
+          {...course}
+          deleteCourse={deleteCourse}
+        />
+      ))}
     </tbody>
   </table>
 );
 
 CourseList.propTypes = {
-  courses: arrayOf(shape({})).isRequired
+  courses: arrayOf(shape({})).isRequired,
+  deleteCourse: func.isRequired
 };
 
 export default CourseList;

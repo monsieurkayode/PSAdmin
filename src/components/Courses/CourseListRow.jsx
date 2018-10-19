@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 
 /**
  *
@@ -11,7 +11,7 @@ import { string } from 'prop-types';
  * @returns {JSX}
  */
 const CourseListRow = ({
-  id, watchHref, title, authorId, category, length
+  id, watchHref, title, authorId, category, length, deleteCourse
 }) => (
   <tr>
     <td>
@@ -23,6 +23,15 @@ const CourseListRow = ({
     <td>{authorId}</td>
     <td>{category}</td>
     <td>{length}</td>
+    <td>
+      <button
+        type="button"
+        className="btn btn-sm btn-danger"
+        onClick={() => deleteCourse(id)}
+      >
+        Delete
+      </button>
+    </td>
   </tr>
 );
 
@@ -33,6 +42,7 @@ CourseListRow.propTypes = {
   length: string.isRequired,
   title: string.isRequired,
   watchHref: string.isRequired,
+  deleteCourse: func.isRequired
 };
 
 export default CourseListRow;

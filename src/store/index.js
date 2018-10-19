@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'; // eslint-disable-line
 import rootReducer from '../reducers';
 
 const initialState = {};
@@ -19,7 +18,6 @@ let enhancers = [];
  */
 const configureStore = () => {
   if (process.env.NODE_ENV === 'development') {
-    middlewares.push(reduxImmutableStateInvariant());
     enhancers = window.__REDUX_DEVTOOLS_EXTENSION__
       && window.__REDUX_DEVTOOLS_EXTENSION__();
   }

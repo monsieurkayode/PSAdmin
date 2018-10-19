@@ -1,2 +1,19 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css';
+@import '../../node_modules/toastr/build/toastr.min.css';
+
+#root {
+  display: flex;
+  height: 100vh;
+  flex-flow: column nowrap;
+}
+
+.no-content {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  span {
+    font-size: 2rem;
+  }
+}
