@@ -6,7 +6,10 @@
  *
  * @returns {string}
  */
-export const caps = str => `${str[0].toUpperCase()}${str.substr(1)}`;
+export const caps = (str) => {
+  const temp = str.toLowerCase();
+  return `${temp[0].toUpperCase()}${temp.substr(1)}`;
+};
 
 /**
  * @function validateLength
@@ -27,7 +30,7 @@ export const validateLength = (value) => {
  *
  * @returns {object}
  */
-export const validateInput = (formData) => {
+export const validateInput = (formData, course = true) => {
   const minLength = 3;
   const skip = ['id', 'watchHref', 'authorId'];
   const errors = {};
@@ -44,7 +47,7 @@ export const validateInput = (formData) => {
       : false;
   });
 
-  if (!errors.length) {
+  if (!errors.length && course) {
     !validateLength(formData.length)
       ? errors.length = 'Invalid format for length e.g 5:59' : null;
   }

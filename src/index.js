@@ -13,6 +13,7 @@ import CoursesPage from './components/Courses/CoursesPage';
 import AuthorsPage from './components/Authors/AuthorsPage';
 import ManageCoursesPage from './components/Courses/ManageCoursesPage';
 import NotFoundPage from './components/NotFound/NotFoundPage';
+import ManageAuthorsPage from './components/Authors/ManageAuthorsPage';
 
 import './styles/index.scss';
 
@@ -38,6 +39,8 @@ render(
           <Route exact path="/authors" component={AuthorsPage} />
           <Route exact path="/course" component={ManageCoursesPage} />
           <Route exact path="/course/:id" component={ManageCoursesPage} />
+          <Route exact path="/author" component={ManageAuthorsPage} />
+          <Route exact path="/author/:id" component={ManageAuthorsPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Fragment>

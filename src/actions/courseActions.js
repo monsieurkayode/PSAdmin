@@ -96,7 +96,7 @@ const updateCourseSuccess = courses => ({
 /**
  * @function saveCourseFailure
  *
- * @param {object} courses
+ * @param {object} errors
  *
  * @returns {object}
  */
@@ -172,6 +172,6 @@ export const deleteCourse = id => (dispatch) => {
  * @returns {Function}
  */
 export const pageChange = page => dispatch => dispatch({
-  type: types.CHANGE_PAGE,
+  type: types.CHANGE_PAGE_COURSES,
   page
 });

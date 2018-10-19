@@ -14,7 +14,7 @@ import '../../../styles/Header.scss';
  *
  * @returns {JSX}
  */
-const Header = ({ location: { pathname }, courses }) => {
+const Header = ({ location: { pathname }, courses, authors }) => {
   /**
    * @description sets the active class
    * on the navbar item of the current page
@@ -41,12 +41,14 @@ const Header = ({ location: { pathname }, courses }) => {
           <li className={`link ${activeLink('/') && 'active'}`}>
             <Link to="/">Home</Link>
           </li>
-          <li className={`link ${activeLink('authors') && 'active'}`}>
-            <Link to="/authors">Authors</Link>
+          <li className={`link ${activeLink('author') && 'active'}`}>
+            <Link to="/authors">
+              Authors <span className="count">{authors.length}</span>
+            </Link>
           </li>
           <li className={`link ${activeLink('course') && 'active'}`}>
             <Link to="/courses">
-              Courses <span className="course-count">{courses.length}</span>
+              Courses <span className="count">{courses.length}</span>
             </Link>
           </li>
           <li className={`link ${activeLink('about') && 'active'}`}>
@@ -65,13 +67,17 @@ const Header = ({ location: { pathname }, courses }) => {
  *
  * @returns {object}
  */
-const mapStateToProps = ({ allCourses: { courses } }) => ({ courses });
+const mapStateToProps = ({
+  allCourses: { courses },
+  allAuthors: { authors }
+}) => ({ courses, authors });
 
 Header.propTypes = {
   location: shape({
     pathname: string.isRequired
   }).isRequired,
-  courses: arrayOf(shape({})).isRequired
+  courses: arrayOf(shape({})).isRequired,
+  authors: arrayOf(shape({})).isRequired,
 };
 
 export default withRouter(connect(mapStateToProps)(Header));

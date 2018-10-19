@@ -71,9 +71,7 @@ class CourseApi {
       setTimeout(() => {
         // Simulate server-side validation
         const { errors, isValid } = validateInput(course);
-        if (!isValid) {
-          reject(errors);
-        }
+        if (!isValid) { reject(errors); }
 
         if (course.id) {
           const existingCourseIndex = courses

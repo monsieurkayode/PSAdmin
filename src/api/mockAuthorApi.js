@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import delay from './delay';
+import { validateInput } from '../helpers/validator';
 
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
@@ -19,12 +20,21 @@ const authors = [
     id: 'dan-wahlin',
     firstName: 'Dan',
     lastName: 'Wahlin'
+  },
+  {
+    id: 'kent-dodds',
+    firstName: 'Kent',
+    lastName: 'Dodds'
+  },
+  {
+    id: 'stephen-grider',
+    firstName: 'Stephen',
+    lastName: 'Grider'
   }
 ];
 
 // This would be performed on the server in a real app. Just stubbing in.
-const generateId = author => `${author.firstName.toLowerCase()}
-  -${author.lastName.toLowerCase()}`;
+const generateId = author => `${author.firstName.toLowerCase()}-${author.lastName.toLowerCase()}`; // eslint-disable-line
 
 class AuthorApi {
   static getAllAuthors() {
@@ -40,22 +50,8 @@ class AuthorApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minAuthorNameLength = 3;
-        if (author.firstName.length < minAuthorNameLength) {
-          reject(
-            new Error(
-              `First Name must be at least ${minAuthorNameLength} characters.`
-            )
-          );
-        }
-
-        if (author.lastName.length < minAuthorNameLength) {
-          reject(
-            new Error(
-              `Last Name must be at least ${minAuthorNameLength} characters.`
-            )
-          );
-        }
+        const { errors, isValid } = validateInput(author, false);
+        if (!isValid) { reject(errors); }
 
         if (author.id) {
           const existingAuthorIndex = authors

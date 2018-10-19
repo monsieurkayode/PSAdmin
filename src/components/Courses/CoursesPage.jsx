@@ -18,9 +18,17 @@ import paginator from '../../helpers/paginator';
  * @returns {JSX}
  */
 class CoursesPage extends Component {
+  static propTypes = {
+    deleteCourseAction: func.isRequired,
+    courses: arrayOf(shape({})).isRequired,
+    isLoading: bool.isRequired,
+    meta: shape({}).isRequired,
+    pageChange: func.isRequired
+  }
+
   componentWillUpdate({ meta, currentPage }) {
     if (meta.pageSize === 0 && currentPage > 1 && meta.pageCount >= 1) {
-      this.props.pageChangeAction(currentPage - 1);
+      this.props.pageChange(currentPage - 1);
     }
   }
 
@@ -33,7 +41,7 @@ class CoursesPage extends Component {
    * @returns {void}
    */
   handlePageClick = ({ selected }) => {
-    this.props.pageChangeAction(selected + 1);
+    this.props.pageChange(selected + 1);
   }
 
   render() {
@@ -83,14 +91,6 @@ class CoursesPage extends Component {
   }
 }
 
-CoursesPage.propTypes = {
-  deleteCourseAction: func.isRequired,
-  courses: arrayOf(shape({})).isRequired,
-  isLoading: bool.isRequired,
-  meta: shape({}).isRequired,
-  pageChangeAction: func.isRequired
-};
-
 /**
  *
  * @description makes the CoursePage a container component
@@ -119,5 +119,5 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { deleteCourseAction: deleteCourse, pageChangeAction: pageChange }
+  { deleteCourseAction: deleteCourse, pageChange }
 )(CoursesPage);
