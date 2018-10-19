@@ -26,7 +26,7 @@ export default (state = initialCourses, action) => {
         ...state,
         courses: [...state.courses.filter(course => course.id !== action.id)]
       };
-    case types.CHANGE_PAGE:
+    case types.CHANGE_PAGE_COURSES:
       return { ...state, currentPage: action.page };
     default:
       return state;

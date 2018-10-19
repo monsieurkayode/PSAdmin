@@ -8,5 +8,8 @@ export const initialCourses = {
 
 export const initialAuthors = {
   authors: [],
-  isLoading: false
+  isLoading: false,
+  isSaving: false,
+  errors: {},
+  currentPage: 1
 };

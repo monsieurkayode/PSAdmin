@@ -150,6 +150,16 @@ class ManageCoursesPage extends Component {
  */
 const getCourse = (courses, id) => courses.find(c => c.id === id);
 
+/**
+ *
+ * @description makes the ManageCoursePage a container component
+ * by making it aware of the application state in the store
+ * via the connect function from react-redux library
+ *
+ * @function mapStateToProps
+ *
+ * @param {object} { allCourses, allAuthors }
+ */
 const mapStateToProps = ({
   allAuthors: { authors },
   allCourses: {
