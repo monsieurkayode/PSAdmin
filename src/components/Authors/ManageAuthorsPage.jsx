@@ -56,23 +56,25 @@ class ManageAuthorsPage extends Component {
     const { author } = this.state;
     const { isValid, errors } = validateInput(author, false);
 
-    this.setState({ newChanges: false });
-
     if (!isValid) {
       toastr.clear();
       toastr.error('Invalid form data', 'Submission Error!');
       return this.setState({ errors });
     }
 
+    this.setState({ newChanges: false });
+
     this.props.saveAuthor(author)
       .then(() => this.redirect('/authors'))
       .catch(err => this.setState({ errors: err }));
   }
 
-  clearErrors = () => {
+  clearErrors = (event) => {
     toastr.clear();
+    const { errors } = this.state;
+    errors[event.target.name] = '';
     if (Object.keys(this.state.errors).length > 0) {
-      this.setState({ errors: {} });
+      this.setState({ errors });
     }
   }
 

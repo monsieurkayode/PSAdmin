@@ -74,10 +74,12 @@ class ManageCoursesPage extends Component {
    *
    * @returns {void}
    */
-  clearErrors = () => {
+  clearErrors = (event) => {
     toastr.clear();
+    const { errors } = this.state;
+    errors[event.target.name] = '';
     if (Object.keys(this.state.errors).length > 0) {
-      this.setState({ errors: {} });
+      this.setState({ errors });
     }
   }
 
@@ -93,13 +95,13 @@ class ManageCoursesPage extends Component {
     const { course } = this.state;
     const { isValid, errors } = validateInput(course);
 
-    this.setState({ newChanges: false });
-
     if (!isValid) {
       toastr.clear();
       toastr.error('Invalid form data', 'Submission Error!');
       return this.setState({ errors });
     }
+
+    this.setState({ newChanges: false });
 
     this.props.saveCourse(course)
       .then(() => this.redirect('/courses'))
