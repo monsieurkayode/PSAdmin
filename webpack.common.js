@@ -1,5 +1,4 @@
-const webpack = require('webpack');
-const { resolve, join } = require('path');
+const { join } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -11,10 +10,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   context: __dirname,
-  devtool: 'source-map',
-  entry: [
-    resolve(__dirname, './src/index.js')
-  ],
   output: {
     path: join(__dirname, 'dist'),
     filename: 'js/bundle.js',
@@ -87,11 +82,5 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
     new ExtractTextPlugin('css/bundle.css'),
-    new webpack.HotModuleReplacementPlugin(),
   ],
-  devServer: {
-    publicPath: '/',
-    hot: true,
-    historyApiFallback: true,
-  },
 };

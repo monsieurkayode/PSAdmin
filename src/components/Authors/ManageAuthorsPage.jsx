@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
+import { Prompt } from 'react-router-dom';
 import { saveAuthor, setSaveErrors } from '../../actions/authorActions';
 import AuthorForm from './AuthorForm';
 import NotFoundPage from '../NotFound/NotFoundPage';
-import { validateInput } from '../../helpers/validator';
+import { validateInput, checkChanges } from '../../helpers/validator';
 
 class ManageAuthorsPage extends Component {
   static defaultProps = {
@@ -17,15 +18,19 @@ class ManageAuthorsPage extends Component {
       firstName: '',
       lastName: ''
     },
-    errors: {}
+    errors: {},
+    newChanges: false
   })
 
-  static getDerivedStateFromProps({ author, isSaving }, { errors }) {
-    if (!isSaving) {
+  static getDerivedStateFromProps(
+    { author, isSaving }, { errors, newChanges }
+  ) {
+    if (!isSaving && !newChanges) {
       return {
         ...ManageAuthorsPage.initialState(),
         author,
-        errors
+        errors,
+        newChanges
       };
     }
 
@@ -43,13 +48,15 @@ class ManageAuthorsPage extends Component {
   handleInputChange = (event) => {
     const { author } = this.state;
     author[event.target.name] = event.target.value;
-    this.setState({ author });
+    this.setState({ author, newChanges: checkChanges(author) });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     const { author } = this.state;
     const { isValid, errors } = validateInput(author, false);
+
+    this.setState({ newChanges: false });
 
     if (!isValid) {
       toastr.clear();
@@ -70,7 +77,7 @@ class ManageAuthorsPage extends Component {
   }
 
   render() {
-    const { author, errors } = this.state;
+    const { author, errors, newChanges } = this.state;
     const { isSaving, loadingAuthor, match } = this.props;
 
     if (!loadingAuthor && match.params.id && !this.props.author.id) {
@@ -79,6 +86,10 @@ class ManageAuthorsPage extends Component {
 
     return (
       <div className="container" style={{ maxWidth: '55%', minWidth: '400px' }}>
+        <Prompt
+          when={!isSaving && newChanges}
+          message="You have unsaved changes, leave page?"
+        />
         <h1>Manage Author</h1>
         <AuthorForm
           {...author}

@@ -3,7 +3,6 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
-const initialState = {};
 const middlewares = [thunk];
 let enhancers = [];
 
@@ -25,7 +24,7 @@ const configureStore = () => {
   const createStoreWithMiddleware = applyMiddleware(
     ...middlewares
   )(createStore);
-  return createStoreWithMiddleware(rootReducer, initialState, enhancers);
+  return createStoreWithMiddleware(rootReducer, enhancers);
 };
 
 export default configureStore();

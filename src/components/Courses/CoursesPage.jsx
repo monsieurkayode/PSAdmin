@@ -32,6 +32,10 @@ class CoursesPage extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.pageChange(1);
+  }
+
   /**
    * @method handlePageClick
    * @memberof CoursePage

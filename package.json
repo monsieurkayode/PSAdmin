@@ -8,13 +8,17 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --open",
     "start": "node dist/server.js",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "build:client": "webpack --mode development",
+    "build:client:dev": "webpack --config webpack.config.dev.js --watch",
+    "build:client:prod": "webpack --config webpack.config.prod.js",
     "prebuild:dev": "rm -rf dist",
+    "prebuild:prod": "rm -rf dist",
     "build:server": "babel --presets env server.js -d dist/",
-    "build:dev": "concurrently \"yarn build:client\" \"yarn build:server\"",
+    "build:dev": "concurrently \"yarn build:client:dev\" \"yarn build:server\"",
+    "build:prod": "concurrently \"yarn build:client:prod\" \"yarn build:server\"",
+    "heroku-postbuild": "yarn build:prod",
     "test:dev": "jest -u --coverage",
     "test:watch": "yarn test:dev --watch"
   },
@@ -66,6 +70,7 @@
     "redux-thunk": "^2.3.0",
     "serve-favicon": "^2.5.0",
     "toastr": "^2.1.4",
-    "webpack": "^4.20.2"
+    "webpack": "^4.20.2",
+    "webpack-merge": "^4.1.4"
   }
 }

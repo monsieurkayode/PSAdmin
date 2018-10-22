@@ -21,9 +21,12 @@ toastr.options = {
   closeButton: true,
   progressBar: true,
   showMethod: 'slideDown',
+  closeMethod: 'slideUp',
+  hideDuration: 300,
+  positionClass: 'toast-top-center'
 };
 
-// Dispatch the loadCourses action on initilaization
+// Dispatch the loadCourses and loadAuthors action on initilaization
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 

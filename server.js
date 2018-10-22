@@ -6,7 +6,7 @@ import { resolve } from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware'; //eslint-disable-line
 import webpackHotMiddleware from 'webpack-hot-middleware'; //eslint-disable-line
-import webpackConfig from '../webpack.config';//eslint-disable-line
+import webpackConfig from '../webpack.config.dev';//eslint-disable-line
 
 const compiler = webpack(webpackConfig);
 

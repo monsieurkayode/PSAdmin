@@ -57,3 +57,11 @@ export const validateInput = (formData, course = true) => {
     isValid: Object.keys(errors).length === 0
   };
 };
+
+export const checkChanges = (form) => {
+  const skip = ['id', 'watchHref'];
+  const data = Object.assign({}, form);
+  skip.forEach(key => delete data[key]);
+
+  return Object.values(data).some(value => value.toString().trim().length > 0);
+};

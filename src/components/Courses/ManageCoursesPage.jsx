@@ -4,10 +4,11 @@ import {
 } from 'prop-types';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
+import { Prompt } from 'react-router-dom';
 import { saveCourse, setSaveErrors } from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import NotFoundPage from '../NotFound/NotFoundPage';
-import { validateInput } from '../../helpers/validator';
+import { validateInput, checkChanges } from '../../helpers/validator';
 
 import '../../styles/ManageCoursePage.scss';
 
@@ -39,15 +40,19 @@ class ManageCoursesPage extends Component {
       category: '',
       watchHref: '',
     },
-    errors: {}
+    errors: {},
+    newChanges: false,
   });
 
-  static getDerivedStateFromProps({ course, isSaving }, { errors }) {
-    if (!isSaving) {
+  static getDerivedStateFromProps(
+    { course, isSaving }, { errors, newChanges }
+  ) {
+    if (!isSaving && !newChanges) {
       return {
         ...ManageCoursesPage.initialState(),
         course,
-        errors
+        errors,
+        newChanges
       };
     }
 
@@ -88,6 +93,8 @@ class ManageCoursesPage extends Component {
     const { course } = this.state;
     const { isValid, errors } = validateInput(course);
 
+    this.setState({ newChanges: false });
+
     if (!isValid) {
       toastr.clear();
       toastr.error('Invalid form data', 'Submission Error!');
@@ -109,14 +116,14 @@ class ManageCoursesPage extends Component {
   handleInputChange = (event) => {
     const { course } = this.state;
     course[event.target.name] = event.target.value;
-    this.setState({ course });
+    this.setState({ course, newChanges: checkChanges(course) });
   }
 
   render() {
     const {
       authors, isSaving, loadingCourse, match
     } = this.props;
-    const { course, errors } = this.state;
+    const { course, errors, newChanges } = this.state;
 
     if (!loadingCourse && match.params.id && !this.props.course.id) {
       return <NotFoundPage content="Course" />;
@@ -124,6 +131,10 @@ class ManageCoursesPage extends Component {
 
     return (
       <div className="container" style={{ maxWidth: '55%', minWidth: '400px' }}>
+        <Prompt
+          when={!isSaving && newChanges}
+          message="You have unsaved changes, leave page?"
+        />
         <h1>Manage Course</h1>
         <CourseForm
           {...course}
