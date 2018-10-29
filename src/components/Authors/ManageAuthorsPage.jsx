@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  shape,
+  bool,
+  string,
+  func
+} from 'prop-types';
 import toastr from 'toastr';
 import { Prompt } from 'react-router-dom';
 import { saveAuthor, setSaveErrors } from '../../actions/authorActions';
 import AuthorForm from './AuthorForm';
 import NotFoundPage from '../NotFound/NotFoundPage';
 import { validateInput, checkChanges } from '../../helpers/validator';
+import getAuthor from '../../helpers/getData';
 
-class ManageAuthorsPage extends Component {
+
+export class ManageAuthorsPage extends Component {
   static defaultProps = {
-    author: {}
+    author: {},
+    match: {}
+  }
+
+  static propTypes = {
+    author: shape({}),
+    isSaving: bool.isRequired,
+    loadingAuthor: bool.isRequired,
+    history: shape({
+      push: func.isRequired
+    }).isRequired,
+    match: shape({
+      params: {
+        id: string
+      }
+    })
   }
 
   static initialState = () => ({
@@ -106,16 +129,6 @@ class ManageAuthorsPage extends Component {
     );
   }
 }
-
-/**
- * @function getAuthor
- *
- * @param {array} authors
- * @param {string} id
- *
- * @returns {any}
- */
-const getAuthor = (authors, id) => authors.find(c => c.id === id);
 
 /**
  *

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorsPage Component renders correctly 1`] = `
+<main>
+  <div
+    className="container jumbotron"
+  >
+    <div
+      className="container-fluid"
+    >
+      <h1>
+        Authors
+      </h1>
+      <p>
+        Authors management page.
+      </p>
+      <Link
+        replace={false}
+        to="/author"
+      >
+        <button
+          className="btn btn-lg btn-primary"
+          type="button"
+        >
+          Add Author
+        </button>
+      </Link>
+    </div>
+  </div>
+  <section
+    className="container"
+  >
+    <div>
+      <div
+        className="no-content"
+      >
+        The authors catalog is empty.
+      </div>
+    </div>
+  </section>
+</main>
+`;

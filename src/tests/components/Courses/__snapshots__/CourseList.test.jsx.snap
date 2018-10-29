@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CourseList Component renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+         
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Category
+      </th>
+      <th>
+        Length
+      </th>
+      <th>
+         
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <CourseListRow
+      authorId="cory-house"
+      category="JavaScript"
+      deleteCourse={[MockFunction]}
+      id="react-flux-building-applications"
+      key="react-flux-building-applications"
+      length="5:08"
+      title="Building Applications in React and Flux"
+      watchHref="react-flux-building-applications"
+    />
+    <CourseListRow
+      authorId="cory-house"
+      category="Software Practices"
+      deleteCourse={[MockFunction]}
+      id="clean-code"
+      key="clean-code"
+      length="3:10"
+      title="Clean Code: Writing Code for Humans"
+      watchHref="writing-clean-code-humans"
+    />
+  </tbody>
+</table>
+`;

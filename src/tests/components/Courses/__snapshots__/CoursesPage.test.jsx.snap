@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoursesPage Component renders correctly 1`] = `
+<main>
+  <div
+    className="container jumbotron"
+  >
+    <div
+      className="container-fluid"
+    >
+      <h1>
+        Courses
+      </h1>
+      <p>
+        Courses management page.
+      </p>
+      <Link
+        replace={false}
+        to="/course"
+      >
+        <button
+          className="btn btn-lg btn-primary"
+          type="button"
+        >
+          Add Course
+        </button>
+      </Link>
+    </div>
+  </div>
+  <section
+    className="container"
+  >
+    <div>
+      <div
+        className="no-content"
+      >
+        The course catalog is empty.
+      </div>
+    </div>
+  </section>
+</main>
+`;

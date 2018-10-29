@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageCoursesPage Component renders correctly 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "maxWidth": "55%",
+      "minWidth": "400px",
+    }
+  }
+>
+  <Prompt
+    message="You have unsaved changes, leave page?"
+    when={false}
+  />
+  <h1>
+    Manage Course
+  </h1>
+  <CourseForm
+    authorId="cory-house"
+    authors={
+      Array [
+        Object {
+          "firstName": "Cory",
+          "id": "cory-house",
+          "lastName": "House",
+        },
+        Object {
+          "firstName": "Scott",
+          "id": "scott-allen",
+          "lastName": "Allen",
+        },
+      ]
+    }
+    category="JavaScript"
+    errors={Object {}}
+    id="react-flux-building-applications"
+    length="5:08"
+    loading={false}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onSubmit={[Function]}
+    saving={false}
+    title="Building Applications in React and Flux"
+    watchHref="react-flux-building-applications"
+  />
+</div>
+`;

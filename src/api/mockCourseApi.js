@@ -6,7 +6,7 @@ import { validateInput } from '../helpers/validator';
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-const courses = [
+export const courses = [
   {
     id: 'react-flux-building-applications',
     title: 'Building Applications in React and Flux',

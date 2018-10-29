@@ -11,7 +11,13 @@ import { string, func } from 'prop-types';
  * @returns {JSX}
  */
 const CourseListRow = ({
-  id, watchHref, title, authorId, category, length, deleteCourse
+  id,
+  watchHref,
+  title,
+  authorId,
+  category,
+  length,
+  deleteCourse
 }) => (
   <tr>
     <td>

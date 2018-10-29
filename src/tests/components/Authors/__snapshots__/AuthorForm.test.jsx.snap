@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorForm Component renders correctly 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <TextInput
+    error=""
+    label="First Name"
+    loading={false}
+    name="firstName"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="Kent"
+    value="Cory"
+  />
+  <TextInput
+    error=""
+    label="Last Name"
+    loading={false}
+    name="lastName"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="Dodds"
+    value="House"
+  />
+  <input
+    className="btn btn-primary"
+    disabled={false}
+    type="submit"
+    value="Save"
+  />
+</form>
+`;

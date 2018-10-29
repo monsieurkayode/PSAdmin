@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Component renders correctly 1`] = `
+<Pagination
+  handlePageChange={[MockFunction]}
+  page={2}
+  pageCount={1}
+>
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <PaginationBoxView
+      activeClassName="active"
+      breakClassName="break-me"
+      breakLabel={
+        <span>
+          ...
+        </span>
+      }
+      containerClassName="pagination"
+      disableInitialCallback={true}
+      disabledClassName="disabled"
+      initialPage={1}
+      marginPagesDisplayed={2}
+      nextClassName="next"
+      nextLabel="Next"
+      onPageChange={[MockFunction]}
+      pageCount={1}
+      pageRangeDisplayed={3}
+      previousClassName="previous"
+      previousLabel="Previous"
+      subContainerClassName="pages pagination"
+    >
+      <ul
+        className="pagination"
+      >
+        <li
+          className="previous"
+        >
+          <a
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
+          >
+            Previous
+          </a>
+        </li>
+        <PageView
+          activeClassName="active"
+          key="0"
+          onClick={[Function]}
+          page={1}
+          selected={false}
+        >
+          <li>
+            <a
+              aria-current={null}
+              aria-label="Page 1"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="button"
+              tabIndex="0"
+            >
+              1
+            </a>
+          </li>
+        </PageView>
+        <li
+          className="next"
+        >
+          <a
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            role="button"
+            tabIndex="0"
+          >
+            Next
+          </a>
+        </li>
+      </ul>
+    </PaginationBoxView>
+  </div>
+</Pagination>
+`;

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorList Component renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+         
+      </th>
+      <th>
+        ID
+      </th>
+      <th>
+        Author Name
+      </th>
+      <th>
+         
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <AuthorListRow
+      deleteAuthor={[MockFunction]}
+      firstName="Cory"
+      id="cory-house"
+      key="cory-house"
+      lastName="House"
+    />
+    <AuthorListRow
+      deleteAuthor={[MockFunction]}
+      firstName="Scott"
+      id="scott-allen"
+      key="scott-allen"
+      lastName="Allen"
+    />
+  </tbody>
+</table>
+`;

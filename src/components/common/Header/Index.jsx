@@ -14,7 +14,7 @@ import '../../../styles/Header.scss';
  *
  * @returns {JSX}
  */
-const Header = ({ location: { pathname }, courses, authors }) => {
+export const Header = ({ location: { pathname }, courses, authors }) => {
   /**
    * @description sets the active class
    * on the navbar item of the current page

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage Component renders correctly 1`] = `
+<NotFoundPage
+  content="Page"
+>
+  <div
+    className="no-content"
+    style={
+      Object {
+        "marginTop": "20%",
+      }
+    }
+  >
+    <h3>
+      404! 
+      <span>
+        | 
+        Page
+         not found!
+      </span>
+    </h3>
+  </div>
+</NotFoundPage>
+`;

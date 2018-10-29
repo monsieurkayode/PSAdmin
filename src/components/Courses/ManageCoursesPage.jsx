@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {
-  shape, bool, arrayOf
+  shape,
+  bool,
+  arrayOf,
+  func
 } from 'prop-types';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
@@ -9,6 +12,8 @@ import { saveCourse, setSaveErrors } from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import NotFoundPage from '../NotFound/NotFoundPage';
 import { validateInput, checkChanges } from '../../helpers/validator';
+import getCourse from '../../helpers/getData';
+import authorsFormattedForDropdown from '../../selectors/selectors';
 
 import '../../styles/ManageCoursePage.scss';
 
@@ -19,7 +24,7 @@ import '../../styles/ManageCoursePage.scss';
  *
  * @returns {JSX}
  */
-class ManageCoursesPage extends Component {
+export class ManageCoursesPage extends Component {
   static defaultProps = {
     course: {}
   }
@@ -28,7 +33,10 @@ class ManageCoursesPage extends Component {
     isSaving: bool.isRequired,
     course: shape({}),
     authors: arrayOf(shape({})).isRequired,
-    loadingCourse: bool.isRequired
+    loadingCourse: bool.isRequired,
+    history: shape({
+      push: func.isRequired
+    }).isRequired
   }
 
   static initialState = () => ({
@@ -154,16 +162,6 @@ class ManageCoursesPage extends Component {
 }
 
 /**
- * @function getCourse
- *
- * @param {array} courses
- * @param {string} id
- *
- * @returns {any}
- */
-const getCourse = (courses, id) => courses.find(c => c.id === id);
-
-/**
  *
  * @description makes the ManageCoursePage a container component
  * by making it aware of the application state in the store
@@ -185,13 +183,6 @@ const mapStateToProps = ({
     course = Object.assign({}, getCourse(courses, params.id));
   }
 
-  const authorsFormattedForDropdown = authors.map(author => (
-    {
-      value: author.id,
-      text: `${author.firstName} ${author.lastName}`
-    }
-  ));
-
   let loadingCourse = isLoading;
 
   if (!params.id) { loadingCourse = false; }
@@ -202,7 +193,7 @@ const mapStateToProps = ({
     errors,
     courses,
     course,
-    authors: authorsFormattedForDropdown
+    authors: authorsFormattedForDropdown(authors)
   };
 };
 

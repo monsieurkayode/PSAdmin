@@ -17,7 +17,7 @@ import paginator from '../../helpers/paginator';
  *
  * @returns {JSX}
  */
-class AuthorsPage extends Component {
+export class AuthorsPage extends Component {
   static propTypes = {
     authors: arrayOf(shape({})).isRequired,
     pageChange: func.isRequired,

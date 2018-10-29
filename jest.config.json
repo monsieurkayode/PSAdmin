@@ -1,18 +1,23 @@
 {
+  "verbose": true,
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "**/*.{js,jsx}",
-    "!node_modules/",
+    "src/**/*.{js,jsx}",
+    "!<rootDir>/node_modules/",
+    "!<rootDir>/src/api/*",
+    "!<rootDir>/src/store/*",
+    "!<rootDir>/src/tests/**/*",
     "!src/index.js"
-  ],
-  "modulePathIgnorePatterns": [
-    "./src/index.js",
-    "./node_modules/"
   ],
   "snapshotSerializers": [
     "enzyme-to-json/serializer"
   ],
   "setupFiles": [
     "./src/tests/utils/testSetup.js"
-  ]
+  ],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+    "\\.(css|scss)$": "<rootDir>/src/tests/__mocks__/fileMock.js"
+  },
+  "restoreMocks": true
 }
