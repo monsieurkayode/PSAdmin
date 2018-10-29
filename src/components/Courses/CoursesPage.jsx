@@ -17,7 +17,7 @@ import paginator from '../../helpers/paginator';
  *
  * @returns {JSX}
  */
-class CoursesPage extends Component {
+export class CoursesPage extends Component {
   static propTypes = {
     deleteCourseAction: func.isRequired,
     courses: arrayOf(shape({})).isRequired,
@@ -123,5 +123,8 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { deleteCourseAction: deleteCourse, pageChange }
+  {
+    deleteCourseAction: deleteCourse,
+    pageChange
+  }
 )(CoursesPage);

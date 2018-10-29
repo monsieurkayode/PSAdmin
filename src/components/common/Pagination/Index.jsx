@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import { number } from 'prop-types';
+import { number, func } from 'prop-types';
 
 const Pagination = ({ pageCount, page, handlePageChange }) => ( // eslint-disable-line
   <div style={{ textAlign: 'center' }}>
@@ -22,7 +22,8 @@ const Pagination = ({ pageCount, page, handlePageChange }) => ( // eslint-disabl
 
 Pagination.propTypes = {
   pageCount: number.isRequired,
-  page: number.isRequired
+  page: number.isRequired,
+  handlePageChange: func.isRequired
 };
 
 export default Pagination;

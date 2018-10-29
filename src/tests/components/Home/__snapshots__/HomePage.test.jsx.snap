@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Component renders correctly 1`] = `
+<div
+  className="container jumbotron"
+>
+  <div
+    className="container-fluid"
+  >
+    <h1>
+      Pluralsight Administration
+    </h1>
+    <p>
+      React, React Router, and Flux for ultra-responsive web apps.
+    </p>
+    <Link
+      replace={false}
+      to="/about"
+    >
+      <button
+        className="btn btn-lg btn-primary"
+        type="button"
+      >
+        Learn more
+      </button>
+    </Link>
+  </div>
+</div>
+`;

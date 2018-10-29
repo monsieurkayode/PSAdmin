@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPage Component renders correctly 1`] = `
+<div
+  className="container jumbotron"
+>
+  <div
+    className="container-fluid"
+  >
+    <h1>
+      About PSAdmin
+    </h1>
+    <p>
+      This application uses React, Redux, React-Router and a variety of other helpful libraries.
+    </p>
+    <Link
+      replace={false}
+      to="/about"
+    >
+      <button
+        className="btn btn-lg btn-primary"
+        type="button"
+      >
+        Learn more
+      </button>
+    </Link>
+  </div>
+</div>
+`;

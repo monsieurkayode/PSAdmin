@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectInput Component renders correctly 1`] = `
+<SelectInput
+  defaultOption=""
+  error=""
+  label=""
+  loading={false}
+  name=""
+  onChange={[MockFunction]}
+  onFocus={[MockFunction]}
+  options={
+    Array [
+      Object {
+        "text": "",
+        "value": "",
+      },
+    ]
+  }
+  value=""
+>
+  <div
+    className="form-group"
+  >
+    <label
+      htmlFor=""
+    />
+    <div
+      className="field custom-field"
+    >
+      <select
+        className="form-control"
+        name=""
+        onChange={[MockFunction]}
+        onFocus={[MockFunction]}
+        value=""
+      >
+        <option
+          value=""
+        />
+        <option
+          key=""
+          value=""
+        />
+      </select>
+    </div>
+  </div>
+</SelectInput>
+`;

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CourseForm Component renders correctly 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <TextInput
+    error=""
+    label="Title"
+    loading={false}
+    name="title"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="React Fundamentals..."
+    value="Building Applications in React and Flux"
+  />
+  <SelectInput
+    defaultOption="Select Author"
+    error=""
+    label="Author"
+    loading={false}
+    name="authorId"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "firstName": "Cory",
+          "id": "cory-house",
+          "lastName": "House",
+        },
+        Object {
+          "firstName": "Scott",
+          "id": "scott-allen",
+          "lastName": "Allen",
+        },
+      ]
+    }
+    value="cory-house"
+  />
+  <TextInput
+    error=""
+    label="Category"
+    loading={false}
+    name="category"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="UI/UX, HTML, Graphql..."
+    value="JavaScript"
+  />
+  <TextInput
+    error=""
+    label="Length"
+    loading={false}
+    name="length"
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    placeholder="5:12"
+    value="5:08"
+  />
+  <input
+    className="btn btn-primary"
+    disabled={false}
+    type="submit"
+    value="Save"
+  />
+</form>
+`;

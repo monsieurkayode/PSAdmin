@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageAuthorsPage Component renders correctly 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "maxWidth": "55%",
+      "minWidth": "400px",
+    }
+  }
+>
+  <Prompt
+    message="You have unsaved changes, leave page?"
+    when={false}
+  />
+  <h1>
+    Manage Author
+  </h1>
+  <AuthorForm
+    errors={Object {}}
+    firstName="Cory"
+    id="cory-house"
+    lastName="House"
+    loading={false}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onSubmit={[Function]}
+    saving={false}
+  />
+</div>
+`;
